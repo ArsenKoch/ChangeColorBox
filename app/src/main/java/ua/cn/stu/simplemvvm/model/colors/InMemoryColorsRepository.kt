@@ -1,7 +1,6 @@
 package ua.cn.stu.simplemvvm.model.colors
 
 import android.graphics.Color
-import ua.cn.stu.foundation.model.tasks.Task
 import ua.cn.stu.foundation.model.tasks.ThreadUtils
 import ua.cn.stu.foundation.model.tasks.factories.TasksFactory
 
