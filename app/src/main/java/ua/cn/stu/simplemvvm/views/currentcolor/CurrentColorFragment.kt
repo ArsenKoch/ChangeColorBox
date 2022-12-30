@@ -13,12 +13,15 @@ import ua.cn.stu.simplemvvm.views.renderSimpleResult
 
 class CurrentColorFragment : BaseFragment() {
 
-    // no arguments for this screen
     class Screen : BaseScreen
 
     override val viewModel by screenViewModel<CurrentColorViewModel>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val binding = FragmentCurrentColorBinding.inflate(inflater, container, false)
         viewModel.currentColor.observe(viewLifecycleOwner) { result ->
             renderSimpleResult(

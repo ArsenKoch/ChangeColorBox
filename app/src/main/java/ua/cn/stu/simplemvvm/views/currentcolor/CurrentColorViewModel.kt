@@ -42,8 +42,6 @@ class CurrentColorViewModel(
         _currentColor.postValue(SuccessResult(it))
     }
 
-    // --- example of listening results via model layer
-
     init {
         colorsRepository.addListener(colorListener)
         load()
@@ -54,8 +52,6 @@ class CurrentColorViewModel(
         colorsRepository.removeListener(colorListener)
     }
 
-    // --- example of listening results directly from the screen
-
     override fun onResult(result: Any) {
         super.onResult(result)
         if (result is NamedColor) {
@@ -64,17 +60,12 @@ class CurrentColorViewModel(
         }
     }
 
-    // ---
-
     fun changeColor() {
         val currentColor = currentColor.value.takeSuccess() ?: return
         val screen = ChangeColorFragment.Screen(currentColor.id)
         navigator.launch(screen)
     }
 
-    /**
-     * Example of using side-effect plugins
-     */
     fun requestPermission() = tasksFactory.async<Unit> {
         val permission = Manifest.permission.ACCESS_FINE_LOCATION
         val hasPermission = permissions.hasPermissions(permission)
