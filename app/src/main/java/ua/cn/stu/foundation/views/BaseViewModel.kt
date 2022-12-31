@@ -5,11 +5,6 @@ import kotlinx.coroutines.launch
 import ua.cn.stu.foundation.model.ErrorResult
 import ua.cn.stu.foundation.model.Result
 import ua.cn.stu.foundation.model.SuccessResult
-import ua.cn.stu.foundation.model.tasks.Task
-import ua.cn.stu.foundation.utils.Event
-
-typealias LiveEvent<T> = LiveData<Event<T>>
-typealias MutableLiveEvent<T> = MutableLiveData<Event<T>>
 
 typealias LiveResult<T> = LiveData<Result<T>>
 typealias MutableLiveResult<T> = MutableLiveData<Result<T>>
@@ -19,8 +14,6 @@ typealias MediatorLiveResult<T> = MediatorLiveData<Result<T>>
  * Base class for all view-models.
  */
 open class BaseViewModel: ViewModel() {
-
-    private val tasks = mutableSetOf<Task<*>>()
 
     override fun onCleared() {
         super.onCleared()
@@ -66,8 +59,6 @@ open class BaseViewModel: ViewModel() {
     }
 
     private fun clearTasks() {
-        tasks.forEach { it.cancel() }
-        tasks.clear()
     }
 
 }
