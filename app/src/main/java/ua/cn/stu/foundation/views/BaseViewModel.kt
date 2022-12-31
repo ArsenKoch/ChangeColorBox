@@ -1,7 +1,7 @@
 package ua.cn.stu.foundation.views
 
 import androidx.lifecycle.*
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import ua.cn.stu.foundation.model.ErrorResult
 import ua.cn.stu.foundation.model.Result
 import ua.cn.stu.foundation.model.SuccessResult
@@ -13,11 +13,16 @@ typealias MediatorLiveResult<T> = MediatorLiveData<Result<T>>
 /**
  * Base class for all view-models.
  */
-open class BaseViewModel: ViewModel() {
+open class BaseViewModel : ViewModel() {
+
+    private val coroutineContext = SupervisorJob() + Dispatchers.Main.immediate
+
+    protected val viewModelScope: CoroutineScope = CoroutineScope(coroutineContext)
+
 
     override fun onCleared() {
         super.onCleared()
-        clearTasks()
+        clearViewModelScope()
     }
 
     /**
@@ -33,7 +38,7 @@ open class BaseViewModel: ViewModel() {
      * Return `true` if you want to abort closing this screen
      */
     open fun onBackPressed(): Boolean {
-        clearTasks()
+        clearViewModelScope()
         return false
     }
 
@@ -58,7 +63,7 @@ open class BaseViewModel: ViewModel() {
         }
     }
 
-    private fun clearTasks() {
+    private fun clearViewModelScope() {
+        viewModelScope.cancel()
     }
-
 }

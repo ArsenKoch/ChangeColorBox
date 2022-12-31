@@ -2,11 +2,15 @@ package ua.cn.stu.simplemvvm.model.colors
 
 import android.graphics.Color
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
+import ua.cn.stu.foundation.model.coroutines.IoDispatchers
 
 /**
  * Simple in-memory implementation of [ColorsRepository]
  */
-class InMemoryColorsRepository : ColorsRepository {
+class InMemoryColorsRepository(
+    private val ioDispatchers: IoDispatchers
+) : ColorsRepository {
 
     private var currentColor: NamedColor = AVAILABLE_COLORS[0]
 
@@ -20,28 +24,29 @@ class InMemoryColorsRepository : ColorsRepository {
         listeners -= listener
     }
 
-    override suspend fun getAvailableColors(): List<NamedColor>  {
+    override suspend fun getAvailableColors(): List<NamedColor> = withContext(ioDispatchers.value) {
         delay(1000)
-        return AVAILABLE_COLORS
+        return@withContext AVAILABLE_COLORS
     }
 
-    override suspend fun getById(id: Long): NamedColor  {
+    override suspend fun getById(id: Long): NamedColor = withContext(ioDispatchers.value) {
         delay(1000)
-        return AVAILABLE_COLORS.first { it.id == id }
+        return@withContext AVAILABLE_COLORS.first { it.id == id }
     }
 
-    override suspend fun getCurrentColor(): NamedColor  {
+    override suspend fun getCurrentColor(): NamedColor = withContext(ioDispatchers.value) {
         delay(1000)
-        return currentColor
+        return@withContext currentColor
     }
 
-    override suspend fun setCurrentColor(color: NamedColor): Unit  {
-        delay(1000)
-        if (currentColor != color) {
-            currentColor = color
-            listeners.forEach { it(color) }
+    override suspend fun setCurrentColor(color: NamedColor): Unit =
+        withContext(ioDispatchers.value) {
+            delay(1000)
+            if (currentColor != color) {
+                currentColor = color
+                listeners.forEach { it(color) }
+            }
         }
-    }
 
     companion object {
         private val AVAILABLE_COLORS = listOf(
