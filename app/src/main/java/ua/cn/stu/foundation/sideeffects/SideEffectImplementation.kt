@@ -29,5 +29,4 @@ abstract class SideEffectImplementation {
     internal fun injectActivity(activity: AppCompatActivity) {
         this.activity = activity
     }
-
 }

@@ -6,5 +6,4 @@ package ua.cn.stu.foundation.model.dispatchers
 interface Dispatcher {
 
     fun dispatch(block: () -> Unit)
-
 }

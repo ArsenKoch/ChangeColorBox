@@ -19,7 +19,6 @@ open class BaseViewModel : ViewModel() {
 
     protected val viewModelScope: CoroutineScope = CoroutineScope(coroutineContext)
 
-
     override fun onCleared() {
         super.onCleared()
         clearViewModelScope()

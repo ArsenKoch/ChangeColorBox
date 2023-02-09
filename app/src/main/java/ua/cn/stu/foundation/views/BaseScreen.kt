@@ -11,5 +11,4 @@ interface BaseScreen : Serializable {
     companion object {
         const val ARG_SCREEN = "ARG_SCREEN"
     }
-
 }

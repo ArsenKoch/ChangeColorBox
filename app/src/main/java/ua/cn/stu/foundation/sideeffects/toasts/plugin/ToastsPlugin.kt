@@ -17,5 +17,4 @@ class ToastsPlugin : SideEffectPlugin<Toasts, Nothing> {
     override fun createMediator(applicationContext: Context): SideEffectMediator<Nothing> {
         return ToastsSideEffectMediator(applicationContext)
     }
-
 }

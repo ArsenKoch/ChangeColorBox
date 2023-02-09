@@ -41,5 +41,4 @@ interface ColorsRepository : Repository {
      * Stop listening for the current color changes
      */
     fun removeListener(listener: ColorListener)
-
 }

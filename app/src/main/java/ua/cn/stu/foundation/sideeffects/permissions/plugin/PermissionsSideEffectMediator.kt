@@ -39,5 +39,4 @@ class PermissionsSideEffectMediator(
     class RetainedState(
         var emitter: Emitter<PermissionStatus>? = null
     )
-
 }

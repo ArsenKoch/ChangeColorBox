@@ -26,13 +26,11 @@ class ChangeColorViewModel(
     savedStateHandle: SavedStateHandle
 ) : BaseViewModel(), ColorsAdapter.Listener {
 
-    // input sources
     private val _availableColors = MutableLiveResult<List<NamedColor>>(PendingResult())
     private val _currentColorId =
         savedStateHandle.getLiveData("currentColorId", screen.currentColorId)
     private val _saveInProgress = MutableLiveData(false)
 
-    // main destination (contains merged values from _availableColors & _currentColorId)
     private val _viewState = MediatorLiveResult<ViewState>()
     val viewState: LiveResult<ViewState> = _viewState
 
@@ -68,7 +66,7 @@ class ChangeColorViewModel(
 
             navigator.goBack(currentColor)
         } catch (e: Exception) {
-            if (e is CancellationException)  toasts.toast(resources.getString(R.string.error_happened))
+            if (e is CancellationException) toasts.toast(resources.getString(R.string.error_happened))
         } finally {
             _saveInProgress.value = false
         }
@@ -94,10 +92,8 @@ class ChangeColorViewModel(
         val currentColorId = _currentColorId.value ?: return
         val saveInProgress = _saveInProgress.value ?: return
 
-        // map Result<List<NamedColor>> to Result<ViewState>
         _viewState.value = colors.map { colorsList ->
             ViewState(
-                // map List<NamedColor> to List<NamedColorListItem>
                 colorsList = colorsList.map { NamedColorListItem(it, currentColorId == it.id) },
 
                 showSaveButton = !saveInProgress,
@@ -117,5 +113,4 @@ class ChangeColorViewModel(
         val showCancelButton: Boolean,
         val showSaveProgressBar: Boolean
     )
-
 }

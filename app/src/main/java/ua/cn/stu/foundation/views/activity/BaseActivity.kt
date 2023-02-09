@@ -56,5 +56,4 @@ abstract class BaseActivity : AppCompatActivity(), ActivityDelegateHolder {
      * Use this method to add all needed side-effect plugins by using [manager].
      */
     abstract fun registerPlugins(manager: SideEffectPluginsManager)
-
 }

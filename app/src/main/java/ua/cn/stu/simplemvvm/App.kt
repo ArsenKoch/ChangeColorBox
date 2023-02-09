@@ -13,7 +13,6 @@ import ua.cn.stu.simplemvvm.model.colors.InMemoryColorsRepository
 class App : Application(), BaseApplication {
 
     private val ioDispatchers = IoDispatchers(Dispatchers.IO)
-    private val workDispatchers = WorkDispatchers(Dispatchers.Default)
 
     /**
      * Place your singleton scope dependencies here

@@ -66,5 +66,4 @@ class SideEffectMediatorsHolder {
         _mediators.values.forEach { it.clear() }
         _mediators.clear()
     }
-
 }

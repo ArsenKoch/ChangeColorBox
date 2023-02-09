@@ -13,8 +13,6 @@ class ActivityScopeViewModel : ViewModel() {
 
     internal val sideEffectMediatorsHolder = SideEffectMediatorsHolder()
 
-    // contains the list of side-effect mediators that can be
-    // passed to view-model constructors
     val sideEffectMediators: List<SideEffectMediator<*>>
         get() = sideEffectMediatorsHolder.mediators
 
@@ -22,5 +20,4 @@ class ActivityScopeViewModel : ViewModel() {
         super.onCleared()
         sideEffectMediatorsHolder.clear()
     }
-
 }

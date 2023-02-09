@@ -10,5 +10,4 @@ package ua.cn.stu.foundation.views
 interface HasScreenTitle {
 
     fun getScreenTitle(): String?
-
 }

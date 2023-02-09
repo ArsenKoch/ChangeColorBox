@@ -10,5 +10,4 @@ import ua.cn.stu.foundation.sideeffects.resources.plugin.ResourcesPlugin
 interface Resources {
 
     fun getString(@StringRes resId: Int, vararg args: Any): String
-
 }

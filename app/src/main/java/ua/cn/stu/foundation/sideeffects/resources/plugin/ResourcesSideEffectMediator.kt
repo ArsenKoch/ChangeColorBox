@@ -11,5 +11,4 @@ class ResourcesSideEffectMediator(
     override fun getString(resId: Int, vararg args: Any): String {
         return appContext.getString(resId, *args)
     }
-
 }

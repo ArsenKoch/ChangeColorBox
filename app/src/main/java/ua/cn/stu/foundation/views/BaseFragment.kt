@@ -45,6 +45,5 @@ abstract class BaseFragment : Fragment() {
             is ErrorResult -> onError(result.exception)
             is PendingResult -> onPending()
         }
-
     }
 }

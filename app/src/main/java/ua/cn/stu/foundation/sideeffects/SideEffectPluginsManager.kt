@@ -16,5 +16,4 @@ class SideEffectPluginsManager {
     fun <Mediator, Implementation> register(plugin: SideEffectPlugin<Mediator, Implementation>) {
         _plugins.add(plugin)
     }
-
 }

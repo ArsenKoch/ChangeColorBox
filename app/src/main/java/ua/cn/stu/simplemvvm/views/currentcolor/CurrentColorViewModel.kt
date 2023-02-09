@@ -1,7 +1,6 @@
 package ua.cn.stu.simplemvvm.views.currentcolor
 
 import android.Manifest
-import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ua.cn.stu.foundation.model.PendingResult
 import ua.cn.stu.foundation.model.SuccessResult

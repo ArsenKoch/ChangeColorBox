@@ -12,7 +12,6 @@ import ua.cn.stu.simplemvvm.views.onTryAgain
 import ua.cn.stu.simplemvvm.views.renderSimpleResult
 
 class CurrentColorFragment : BaseFragment() {
-
     class Screen : BaseScreen
 
     override val viewModel by screenViewModel<CurrentColorViewModel>()
@@ -46,6 +45,4 @@ class CurrentColorFragment : BaseFragment() {
 
         return binding.root
     }
-
-
 }

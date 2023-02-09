@@ -22,5 +22,4 @@ class IntentsSideEffectMediator(
             appContext.startActivity(intent)
         }
     }
-
 }

@@ -17,5 +17,4 @@ class ResourcesPlugin : SideEffectPlugin<ResourcesSideEffectMediator, Nothing> {
     override fun createMediator(applicationContext: Context): SideEffectMediator<Nothing> {
         return ResourcesSideEffectMediator(applicationContext)
     }
-
 }

@@ -39,7 +39,11 @@ class ChangeColorFragment : BaseFragment(), HasScreenTitle {
      */
     override fun getScreenTitle(): String? = viewModel.screenTitle.value
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val binding = FragmentChangeColorBinding.inflate(inflater, container, false)
 
         val adapter = ColorsAdapter(viewModel)
@@ -51,9 +55,12 @@ class ChangeColorFragment : BaseFragment(), HasScreenTitle {
         viewModel.viewState.observe(viewLifecycleOwner) { result ->
             renderSimpleResult(binding.root, result) { viewState ->
                 adapter.items = viewState.colorsList
-                binding.saveButton.visibility = if (viewState.showSaveButton) View.VISIBLE else View.INVISIBLE
-                binding.cancelButton.visibility = if (viewState.showCancelButton) View.VISIBLE else View.INVISIBLE
-                binding.saveProgressBar.visibility = if (viewState.showSaveProgressBar) View.VISIBLE else View.GONE
+                binding.saveButton.visibility =
+                    if (viewState.showSaveButton) View.VISIBLE else View.INVISIBLE
+                binding.cancelButton.visibility =
+                    if (viewState.showCancelButton) View.VISIBLE else View.INVISIBLE
+                binding.saveProgressBar.visibility =
+                    if (viewState.showSaveProgressBar) View.VISIBLE else View.GONE
             }
         }
 
@@ -71,14 +78,16 @@ class ChangeColorFragment : BaseFragment(), HasScreenTitle {
 
     private fun setupLayoutManager(binding: FragmentChangeColorBinding, adapter: ColorsAdapter) {
         // waiting for list width
-        binding.root.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        binding.root.viewTreeObserver.addOnGlobalLayoutListener(object :
+            ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 binding.root.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 val width = binding.root.width
                 val itemWidth = resources.getDimensionPixelSize(R.dimen.item_width)
                 val columns = width / itemWidth
                 binding.colorsRecyclerView.adapter = adapter
-                binding.colorsRecyclerView.layoutManager = GridLayoutManager(requireContext(), columns)
+                binding.colorsRecyclerView.layoutManager =
+                    GridLayoutManager(requireContext(), columns)
             }
         })
     }

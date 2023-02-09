@@ -137,5 +137,4 @@ class ActivityDelegate(
     private fun setupSideEffectImplementer(plugin: SideEffectPlugin<*, *>) {
         implementersHolder.putWithPlugin(plugin, activityViewModel.sideEffectMediatorsHolder, activity)
     }
-
 }

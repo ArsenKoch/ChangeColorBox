@@ -9,5 +9,4 @@ package ua.cn.stu.foundation.views.activity
 interface ActivityDelegateHolder {
 
     val delegate: ActivityDelegate
-
 }

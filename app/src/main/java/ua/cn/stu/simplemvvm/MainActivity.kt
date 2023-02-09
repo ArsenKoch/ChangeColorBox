@@ -18,7 +18,7 @@ import ua.cn.stu.simplemvvm.views.currentcolor.CurrentColorFragment
  */
 class MainActivity : BaseActivity() {
 
-    override fun registerPlugins(manager: SideEffectPluginsManager) = with (manager) {
+    override fun registerPlugins(manager: SideEffectPluginsManager) = with(manager) {
         val navigator = createNavigator()
         register(ToastsPlugin())
         register(ResourcesPlugin())
@@ -34,14 +34,14 @@ class MainActivity : BaseActivity() {
     }
 
     private fun createNavigator() = StackFragmentNavigator(
-            containerId = R.id.fragmentContainer,
-            defaultTitle = getString(R.string.app_name),
-            animations = StackFragmentNavigator.Animations(
-                enterAnim = R.anim.enter,
-                exitAnim = R.anim.exit,
-                popEnterAnim = R.anim.pop_enter,
-                popExitAnim = R.anim.pop_exit
-            ),
-            initialScreenCreator = { CurrentColorFragment.Screen() }
-        )
+        containerId = R.id.fragmentContainer,
+        defaultTitle = getString(R.string.app_name),
+        animations = StackFragmentNavigator.Animations(
+            enterAnim = R.anim.enter,
+            exitAnim = R.anim.exit,
+            popEnterAnim = R.anim.pop_enter,
+            popExitAnim = R.anim.pop_exit
+        ),
+        initialScreenCreator = { CurrentColorFragment.Screen() }
+    )
 }

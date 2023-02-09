@@ -23,5 +23,4 @@ interface SideEffectPlugin<Mediator, Implementation> {
      * (e.g. side-effect doesn't need activity instance)
      */
     fun createImplementation(mediator: Mediator): Implementation? = null
-
 }

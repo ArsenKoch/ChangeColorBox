@@ -29,5 +29,4 @@ class SideEffectImplementationsHolder {
     fun clear() {
         _implementations.clear()
     }
-
 }

@@ -20,5 +20,4 @@ class ToastsSideEffectMediator(
             Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
         }
     }
-
 }

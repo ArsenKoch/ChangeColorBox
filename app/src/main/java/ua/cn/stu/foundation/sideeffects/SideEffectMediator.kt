@@ -26,5 +26,4 @@ open class SideEffectMediator<Implementation>(
     fun clear() {
         target.clear()
     }
-
 }

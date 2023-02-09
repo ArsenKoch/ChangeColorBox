@@ -16,5 +16,4 @@ class Event<T>(
         handled = true
         return value
     }
-
 }

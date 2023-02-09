@@ -18,7 +18,11 @@ import ua.cn.stu.simplemvvm.databinding.PartResultBinding
  * - if [result] is [ErrorResult] -> only error container is displayed
  * - if [result] is [SuccessResult] -> error container & progress-bar is hidden, all other views are visible
  */
-fun <T> BaseFragment.renderSimpleResult(root: ViewGroup, result: Result<T>, onSuccess: (T) -> Unit) {
+fun <T> BaseFragment.renderSimpleResult(
+    root: ViewGroup,
+    result: Result<T>,
+    onSuccess: (T) -> Unit
+) {
     val binding = PartResultBinding.bind(root)
 
     renderResult(

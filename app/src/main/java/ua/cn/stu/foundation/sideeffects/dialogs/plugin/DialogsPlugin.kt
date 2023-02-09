@@ -19,6 +19,6 @@ class DialogsPlugin : SideEffectPlugin<DialogsSideEffectMediator, DialogsSideEff
     }
 
     override fun createImplementation(mediator: DialogsSideEffectMediator): DialogsSideEffectImpl {
-        return DialogsSideEffectImpl(mediator.retainedState)
+        return DialogsSideEffectImpl()
     }
 }
