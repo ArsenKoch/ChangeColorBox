@@ -4,7 +4,6 @@ import android.app.Application
 import kotlinx.coroutines.Dispatchers
 import ua.cn.stu.foundation.BaseApplication
 import ua.cn.stu.foundation.model.coroutines.IoDispatchers
-import ua.cn.stu.foundation.model.coroutines.WorkDispatchers
 import ua.cn.stu.simplemvvm.model.colors.InMemoryColorsRepository
 
 /**
