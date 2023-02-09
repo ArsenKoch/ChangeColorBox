@@ -23,12 +23,13 @@ inline fun <reified VM : ViewModel> BaseFragment.screenViewModel() = viewModels<
     ViewModelFactory(dependencies, this)
 }
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory(
     private val dependencies: List<Any>,
     owner: SavedStateRegistryOwner
 ) : AbstractSavedStateViewModelFactory(owner, null) {
 
-    override fun <T : ViewModel?> create(
+    override fun <T : ViewModel> create(
         key: String,
         modelClass: Class<T>,
         handle: SavedStateHandle
